@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Barang extends Model
 {
     use HasFactory;
-    public function detailpesanan()
-{
-	return $this->hasMany('App\DetailPesanan','barang_id', 'id');
+    public function pesanan_detail() 
+	{
+	     return $this->hasMany('App\PesananDetail','barang_id', 'id');
+	}
 }
-}
+

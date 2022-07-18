@@ -48,7 +48,7 @@
                                                 @csrf
                                                 <input type="text" name="jumlah_pesan" class="form-control"
                                                 required="">
-                                                <button type="submit" class="btn btn-primary">Masukkan Keranjang</button>
+                                                <button type="submit" class="btn btn-primary mt-2">Masukkan Keranjang</button>
                                                 </td>
                                     </form>
                                 </tbody>

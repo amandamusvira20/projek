@@ -36,6 +36,7 @@ class PesanController extends Controller
 
     	//cek validasi
     	$cek_pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
+
     	//simpan ke database pesanan
     	if(empty($cek_pesanan))
     	{
@@ -62,7 +63,7 @@ class PesanController extends Controller
 	    	$detail_pesanan->jumlah_harga = $barang->harga*$request->jumlah_pesan;
 	    	$detail_pesanan->save();
     	}else 
-    	{
+    	    {
     		$pesanan_detail = PesananDetail::where('barang_id', $barang->id)->where('pesanan_id', $pesanan_baru->id)->first();
 
     		$pesanan_detail->jumlah = $pesanan_detail->jumlah+$request->jumlah_pesan;
@@ -71,7 +72,7 @@ class PesanController extends Controller
     		$harga_pesanan_detail_baru = $barang->harga*$request->jumlah_pesan;
 	    	$pesanan_detail->jumlah_harga = $pesanan_detail->jumlah_harga+$harga_pesanan_detail_baru;
 	    	$pesanan_detail->update();
-    	}
+    	    }
 
     	//jumlah total
     	$pesanan = Pesanan::where('user_id', Auth::user()->id)->where('status',0)->first();
